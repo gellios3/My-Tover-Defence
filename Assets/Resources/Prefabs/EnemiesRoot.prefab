@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4028929858982804}
+  - component: {fileID: 114008881680908346}
   m_Layer: 0
   m_Name: EnemiesRoot
   m_TagString: Enemy
@@ -39,3 +40,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114008881680908346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470409484286882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e0f15a5bfba6474791f533eb70476a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyPrefab: {fileID: 4165810956674984, guid: cc465db3e1e14654cb3e9d07be9a8558,
+    type: 2}
+  _spawnPoint: {fileID: 0}
+  _waveCountDownTimerTxt: {fileID: 0}
+  _timeBetweenWaves: 5.5

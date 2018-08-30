@@ -29,7 +29,7 @@ namespace Views.MainGame
         /// Fire rate
         /// </summary>
         [SerializeField] private float _fireRate = 1f;
-        
+
         public float FireRate => _fireRate;
 
         /// <summary>
@@ -48,16 +48,9 @@ namespace Views.MainGame
         public Transform PartToRotate => _partToRotate;
 
         /// <summary>
-        /// Enemies parent
+        ///  Enemies parent
         /// </summary>
-        [SerializeField] private Transform _enemiesParent;
-
-        public Transform EnemiesParent => _enemiesParent;
-
-        /// <summary>
-        /// Bullets parent
-        /// </summary>
-        [SerializeField] private Transform _bulletsParent; 
+        public Transform EnemiesParent { get; set; }
 
         /// <summary>
         /// Bullet prefab
@@ -80,6 +73,11 @@ namespace Views.MainGame
         public event Action OnUpdateTarget;
 
         /// <summary>
+        /// On init
+        /// </summary>
+        public event Action OnInit;
+
+        /// <summary>
         /// On rotate turret
         /// </summary>
         public event Action OnRotateTurret;
@@ -91,7 +89,9 @@ namespace Views.MainGame
 
         protected override void Start()
         {
+            OnInit?.Invoke();
             InvokeRepeating(nameof(UpdateTarget), 0, 0.5f);
+            base.Start();
         }
 
         private void Update()
@@ -125,7 +125,7 @@ namespace Views.MainGame
         /// </summary>
         public void Shoot()
         {
-            var bulletGo = Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation, _bulletsParent);
+            var bulletGo = Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
             var bullet = bulletGo.GetComponent<BulletView>();
 
             if (bullet != null)

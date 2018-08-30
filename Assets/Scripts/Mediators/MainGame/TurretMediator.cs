@@ -1,3 +1,4 @@
+using Signals;
 using UnityEngine;
 using Views.MainGame;
 
@@ -5,6 +6,12 @@ namespace Mediators.MainGame
 {
     public class TurretMediator : TargetMediator<TurretView>
     {
+        /// <summary>
+        /// On init turret signal
+        /// </summary>
+        [Inject]
+        public OnInitTurretSignal OnInitTurretSignal { get; set; }
+
         /// <summary>
         /// On register mediator
         /// </summary>
@@ -15,6 +22,8 @@ namespace Mediators.MainGame
             View.OnRotateTurret += RotateTurret;
 
             View.OnShootTurret += ShootTurret;
+
+            View.OnInit += () => { OnInitTurretSignal.Dispatch(View); };
         }
 
         /// <summary>

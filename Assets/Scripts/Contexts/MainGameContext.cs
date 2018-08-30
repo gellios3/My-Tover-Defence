@@ -4,6 +4,7 @@ using strange.extensions.command.impl;
 using strange.extensions.context.api;
 using strange.extensions.context.impl;
 using Services;
+using Signals;
 using UnityEngine;
 using Views.MainGame;
 
@@ -58,17 +59,22 @@ namespace Contexts
         protected override void mapBindings()
         {
             // init Signals
+            injectionBinder.Bind<OnBuildTurretSignal>().ToSingleton();
+            injectionBinder.Bind<OnInitTurretSignal>().ToSingleton();
 
             // Init commands
 
             // Init services
             injectionBinder.Bind<WayPointsService>().ToSingleton();
             injectionBinder.Bind<WaveService>().ToSingleton();
-            
+
             // Init mediators
             mediationBinder.Bind<EnemyView>().To<EnemyMediator>();
-            mediationBinder.Bind<TurretView>().To<TurretMediator>();
+            mediationBinder.Bind<BuildManagerView>().To<BuildManagerMediator>();
+            mediationBinder.Bind<WaveSpawnerView>().To<WaveSpawnerMediator>();
+            mediationBinder.Bind<NodeView>().To<NodeMediator>();
             mediationBinder.Bind<BulletView>().To<BulletMediator>();
+            mediationBinder.Bind<TurretView>().To<TurretMediator>();
         }
     }
 }

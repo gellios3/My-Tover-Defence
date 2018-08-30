@@ -14,11 +14,6 @@ namespace Views.MainGame
         [SerializeField] private Transform _enemyPrefab;
         
         /// <summary>
-        /// Enemies parent
-        /// </summary>
-        [SerializeField] private Transform _enemiesParent;
-        
-        /// <summary>
         /// Spawn point
         /// </summary>
         [SerializeField] private Transform _spawnPoint;
@@ -81,7 +76,7 @@ namespace Views.MainGame
         private void SpawnEnemy()
         {
             // Load Enemy prefab
-            Instantiate(_enemyPrefab, _spawnPoint.position, _spawnPoint.rotation, _enemiesParent);
+            Instantiate(_enemyPrefab, _spawnPoint.position, _spawnPoint.rotation, transform);
         }
     }
 }
