@@ -7,21 +7,24 @@ namespace Views.MainGame
     public class BuildManagerView : EventView
     {
         /// <summary>
-        /// Standard turret prefab
-        /// </summary>
-        [SerializeField] private GameObject _standardTurretPrefab;
-
-        /// <summary>
         /// Build manager service
         /// </summary>
         [Inject]
         public BuildManagerService BuildManagerService { get; set; }
 
-        protected override void Start()
+        /// <summary>
+        /// Build turret
+        /// </summary>
+        public void BuildTurret(NodeView node)
         {
-            BuildManagerService.TurretToBuild = _standardTurretPrefab;
+            // Build a turret
+            if (!node.CanBuild)
+                return;
+            var turretToBuild = BuildManagerService.TurretToBuild;
+            node.CurrentTurret = Instantiate(
+                turretToBuild, node.transform.position + node.PositionOffset, Quaternion.identity, transform
+            );
+            BuildManagerService.TurretToBuild = null;
         }
-
-        
     }
 }

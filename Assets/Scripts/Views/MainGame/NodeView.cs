@@ -16,6 +16,8 @@ namespace Views.MainGame
         /// Offset position for turret
         /// </summary>
         [SerializeField] private Vector3 _positionOffset;
+        
+        public Vector3 PositionOffset => _positionOffset;
 
         /// <summary>
         /// Build manager service
@@ -33,12 +35,20 @@ namespace Views.MainGame
         /// </summary>
         private Color _startColor;
 
-        public GameObject Turret { get; set; }
+        /// <summary>
+        /// Current turret
+        /// </summary>
+        public GameObject CurrentTurret { private get; set; }
 
         /// <summary>
         /// On view update
         /// </summary>
         public event Action OnBuildTurret;
+
+        /// <summary>
+        /// Can build turret on node status
+        /// </summary>
+        public bool CanBuild => BuildManagerService.TurretToBuild != null;
 
         protected override void Start()
         {
@@ -48,7 +58,7 @@ namespace Views.MainGame
 
         private void OnMouseDown()
         {
-            if (Turret != null)
+            if (CurrentTurret != null)
             {
                 //@TODO Display on UI  
                 Debug.Log("Can't build there!!");
@@ -60,6 +70,8 @@ namespace Views.MainGame
 
         private void OnMouseEnter()
         {
+            if (!CanBuild)
+                return;
             _renderer.material.color = _hoverColor;
         }
 
@@ -67,15 +79,6 @@ namespace Views.MainGame
         {
             _renderer.material.color = _startColor;
         }
-
-        /// <summary>
-        /// Build turret
-        /// </summary>
-        public void BuildTurret(Transform parent)
-        {
-            // Build a turret
-            var turretToBuild = BuildManagerService.TurretToBuild;
-            Turret = Instantiate(turretToBuild, transform.position + _positionOffset, transform.rotation, parent);
-        }
+       
     }
 }

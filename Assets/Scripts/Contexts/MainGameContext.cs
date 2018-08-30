@@ -1,4 +1,5 @@
-﻿using Mediators.MainGame;
+﻿using Commands;
+using Mediators.MainGame;
 using strange.extensions.command.api;
 using strange.extensions.command.impl;
 using strange.extensions.context.api;
@@ -47,8 +48,6 @@ namespace Contexts
         public override IContext Start()
         {
             base.Start();
-//            var startSignal = injectionBinder.GetInstance<StartGameSignal>();
-//            startSignal.Dispatch();
             return this;
         }
 
@@ -63,6 +62,7 @@ namespace Contexts
             injectionBinder.Bind<OnInitTurretSignal>().ToSingleton();
 
             // Init commands
+            commandBinder.Bind<OnBuyTurretItemSignal>().To<OnBuyTurretItemCommand>();
 
             // Init services
             injectionBinder.Bind<WayPointsService>().ToSingleton();
