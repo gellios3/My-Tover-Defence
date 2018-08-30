@@ -1,8 +1,9 @@
 ﻿using strange.extensions.mediation.impl;
 using Services;
 using UnityEngine;
+using Views.MainGame;
 
-namespace Views.MainGame
+namespace Views.Managers
 {
     public class BuildManagerView : EventView
     {
@@ -13,6 +14,12 @@ namespace Views.MainGame
         public BuildManagerService BuildManagerService { get; set; }
 
         /// <summary>
+        /// Player starts service
+        /// </summary>
+        [Inject]
+        public PlayerStartsService PlayerStartsService { get; set; }
+
+        /// <summary>
         /// Build turret
         /// </summary>
         public void BuildTurret(NodeView node)
@@ -20,11 +27,19 @@ namespace Views.MainGame
             // Build a turret
             if (!node.CanBuild)
                 return;
+
             var turretToBuild = BuildManagerService.TurretToBuild;
+
+            // sell turret
+            PlayerStartsService.Money -= turretToBuild.Cost;
+
+            // Instantiate new turret
             node.CurrentTurret = Instantiate(
-                turretToBuild, node.transform.position + node.PositionOffset, Quaternion.identity, transform
+                turretToBuild.Prefab, node.transform.position + node.PositionOffset, Quaternion.identity, transform
             );
             BuildManagerService.TurretToBuild = null;
+
+            Debug.Log("Money :" + PlayerStartsService.Money);
         }
     }
 }

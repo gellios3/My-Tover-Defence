@@ -1,8 +1,8 @@
 using Services;
 using Signals;
-using Views.MainGame;
+using Views.Managers;
 
-namespace Mediators.MainGame
+namespace Mediators.Managers
 {
     public class BuildManagerMediator : TargetMediator<BuildManagerView>
     {
@@ -13,25 +13,12 @@ namespace Mediators.MainGame
         public OnBuildTurretSignal OnBuildTurretSignal { get; set; }
 
         /// <summary>
-        /// On buy turret item signal
-        /// </summary>
-        [Inject]
-        public OnBuyTurretItemSignal OnBuyTurretItemSignal { get; set; }
-
-        /// <summary>
-        /// Build manager service
-        /// </summary>
-        [Inject]
-        public BuildManagerService BuildManagerService { get; set; }
-
-        /// <summary>
         /// On register mediator
         /// </summary>
         public override void OnRegister()
         {
             OnBuildTurretSignal.AddListener(view => { View.BuildTurret(view); });
 
-            OnBuyTurretItemSignal.AddListener(bluePrint => { BuildManagerService.TurretToBuild = bluePrint.Prefab; });
         }
     }
 }

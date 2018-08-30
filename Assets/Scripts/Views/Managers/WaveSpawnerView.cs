@@ -4,7 +4,7 @@ using Services;
 using TMPro;
 using UnityEngine;
 
-namespace Views.MainGame
+namespace Views.Managers
 {
     public class WaveSpawnerView : EventView
     {

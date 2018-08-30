@@ -1547,8 +1547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21bf569d0081f24aaef2838e69a15b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _standardTurretPrefab: {fileID: 1798055903021660, guid: 99ca9dfedc05506409c53dcbbcf55e6b,
-    type: 2}
 --- !u!1001 &263292957
 Prefab:
   m_ObjectHideFlags: 0
@@ -8457,6 +8455,11 @@ Prefab:
       propertyPath: m_Name
       value: ShopTurretItem (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114314084226802092, guid: efb72ac85a559a144a3cc3855af092d5,
+        type: 2}
+      propertyPath: _turretBluePrint.Cost
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efb72ac85a559a144a3cc3855af092d5, type: 2}
   m_IsPrefabAsset: 0
@@ -13301,6 +13304,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1975417906}
+  - component: {fileID: 1975417907}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -13323,6 +13327,17 @@ Transform:
   m_Father: {fileID: 888616322}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1975417907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1975417905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce90aaff28342e7a054308646bd163f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1989063335
 GameObject:
   m_ObjectHideFlags: 0
@@ -13457,7 +13472,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:

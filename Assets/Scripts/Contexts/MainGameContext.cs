@@ -1,5 +1,6 @@
 ﻿using Commands;
 using Mediators.MainGame;
+using Mediators.Managers;
 using strange.extensions.command.api;
 using strange.extensions.command.impl;
 using strange.extensions.context.api;
@@ -8,6 +9,7 @@ using Services;
 using Signals;
 using UnityEngine;
 using Views.MainGame;
+using Views.Managers;
 
 namespace Contexts
 {
@@ -66,6 +68,7 @@ namespace Contexts
 
             // Init services
             injectionBinder.Bind<WayPointsService>().ToSingleton();
+            injectionBinder.Bind<PlayerStartsService>().ToSingleton();
             injectionBinder.Bind<WaveService>().ToSingleton();
             injectionBinder.Bind<BuildManagerService>().ToSingleton();
 

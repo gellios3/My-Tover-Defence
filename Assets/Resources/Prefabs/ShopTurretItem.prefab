@@ -241,6 +241,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buyTurretItem: {fileID: 114034148825273330}
+  _turretBluePrint:
+    Prefab: {fileID: 1798055903021660, guid: 99ca9dfedc05506409c53dcbbcf55e6b, type: 2}
+    Cost: 100
 --- !u!114 &114913414562657582
 MonoBehaviour:
   m_ObjectHideFlags: 1

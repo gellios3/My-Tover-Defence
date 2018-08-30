@@ -1,7 +1,7 @@
 using Signals;
-using Views.MainGame;
+using Views.Managers;
 
-namespace Mediators.MainGame
+namespace Mediators.Managers
 {
     public class WaveSpawnerMediator : TargetMediator<WaveSpawnerView>
     {
