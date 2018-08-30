@@ -1,4 +1,5 @@
 using Services;
+using Signals;
 using UnityEngine;
 using Views.MainGame;
 
@@ -11,6 +12,12 @@ namespace Mediators.MainGame
         /// </summary>
         [Inject]
         public WayPointsService WayPointsService { get; set; }
+
+        /// <summary>
+        /// On hit player signal
+        /// </summary>
+        [Inject]
+        public OnHitPlayerSignal OnHitPlayerSignal { get; set; }
 
         /// <summary>
         /// Check distance
@@ -46,6 +53,7 @@ namespace Mediators.MainGame
             else
             {
                 // if last way point destroy enemy
+                OnHitPlayerSignal.Dispatch();
                 Destroy(View.gameObject);
             }
         }

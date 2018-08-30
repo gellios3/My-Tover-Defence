@@ -1,4 +1,5 @@
-﻿using strange.extensions.mediation.impl;
+﻿using System;
+using strange.extensions.mediation.impl;
 using UnityEngine;
 
 namespace Views.MainGame
@@ -19,6 +20,18 @@ namespace Views.MainGame
         /// Impact effect
         /// </summary>
         [SerializeField] private GameObject _impactEffect;
+
+        /// <summary>
+        /// Hit damage
+        /// </summary>
+        [SerializeField] private int _hitDamage = 20; 
+        
+        public int HitDamage => _hitDamage;
+        
+        /// <summary>
+        /// On view update
+        /// </summary>
+        public event Action<EnemyView> OnHitEnemy;
 
         private void Update()
         {
@@ -58,7 +71,7 @@ namespace Views.MainGame
             var effectIns = Instantiate(_impactEffect, transform.position, transform.rotation, transform.parent);
             Destroy(effectIns, 1f);
             
-            Destroy(_target.gameObject);
+            OnHitEnemy?.Invoke(_target.GetComponent<EnemyView>());
             Destroy(gameObject);
         }
     }

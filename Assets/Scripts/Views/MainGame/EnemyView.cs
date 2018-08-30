@@ -30,6 +30,18 @@ namespace Views.MainGame
         public int WayPointIndex { get; set; }
 
         /// <summary>
+        /// Health
+        /// </summary>
+        public int Health { get; set; } = 100;
+
+        /// <summary>
+        /// Cost money on die
+        /// </summary>
+        [SerializeField] private int _costMoney  = 50;
+        
+        public int CostMoney => _costMoney;
+
+        /// <summary>
         /// On init view
         /// </summary>
         public event Action OnInit;

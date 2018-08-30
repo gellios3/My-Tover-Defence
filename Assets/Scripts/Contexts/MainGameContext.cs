@@ -61,10 +61,13 @@ namespace Contexts
         {
             // init Signals
             injectionBinder.Bind<OnBuildTurretSignal>().ToSingleton();
-            injectionBinder.Bind<OnInitTurretSignal>().ToSingleton();
+            injectionBinder.Bind<OnInitTurretSignal>().ToSingleton();  
+            injectionBinder.Bind<GameOverSignal>().ToSingleton();
 
             // Init commands
             commandBinder.Bind<OnBuyTurretItemSignal>().To<OnBuyTurretItemCommand>();
+            commandBinder.Bind<OnHitPlayerSignal>().To<OnHitPlayerCommand>();
+            commandBinder.Bind<OnHitEnemySignal>().To<OnHitEnemyCommand>();
 
             // Init services
             injectionBinder.Bind<WayPointsService>().ToSingleton();

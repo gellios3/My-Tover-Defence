@@ -111,8 +111,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -261,7 +261,7 @@ MonoBehaviour:
   _priceTxt: {fileID: 114381319634902176}
   _turretBluePrint:
     Prefab: {fileID: 1798055903021660, guid: 99ca9dfedc05506409c53dcbbcf55e6b, type: 2}
-    Cost: 100
+    Cost: 200
 --- !u!114 &114381319634902176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -308,8 +308,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 250
+  m_PreferredWidth: 200
   m_PreferredHeight: 250
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
@@ -432,8 +432,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 72.5, y: -75}
-  m_SizeDelta: {x: 145, y: 150}
+  m_AnchoredPosition: {x: 407, y: -68.70001}
+  m_SizeDelta: {x: 200, y: 137.40002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224503337539735342
 RectTransform:
@@ -468,6 +468,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 33.93}
-  m_SizeDelta: {x: 0, y: -67.85}
+  m_AnchoredPosition: {x: 0, y: 27.627499}
+  m_SizeDelta: {x: 0, y: -55.254997}
   m_Pivot: {x: 0.5, y: 0.5}
