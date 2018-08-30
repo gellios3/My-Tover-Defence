@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using strange.extensions.mediation.impl;
 using Services;
 using TMPro;
@@ -12,12 +13,12 @@ namespace Views.Managers
         /// Enemy prefab
         /// </summary>
         [SerializeField] private Transform _enemyPrefab;
-        
+
         /// <summary>
         /// Spawn point
         /// </summary>
         [SerializeField] private Transform _spawnPoint;
-        
+
         /// <summary>
         /// Wave count down timer
         /// </summary>
@@ -54,7 +55,8 @@ namespace Views.Managers
 
             _countDown -= Time.deltaTime;
             // set countDown to UI text
-            _waveCountDownTimerTxt.text = Mathf.Round(_countDown).ToString();
+            _countDown = Mathf.Clamp(_countDown, 0f, Mathf.Infinity);   
+            _waveCountDownTimerTxt.text = $"{_countDown:0.00}";
         }
 
         /// <summary>

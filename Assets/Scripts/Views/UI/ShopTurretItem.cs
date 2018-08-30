@@ -1,5 +1,6 @@
 ﻿using strange.extensions.mediation.impl;
 using Signals;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,8 +8,19 @@ namespace Views.UI
 {
     public class ShopTurretItem : EventView
     {
-        [SerializeField] private Button _buyTurretItem;
-        
+        /// <summary>
+        /// Buy turret item
+        /// </summary>
+        [SerializeField] private Button _buyTurretButton;
+
+        /// <summary>
+        /// Buy turret item
+        /// </summary>
+        [SerializeField] private TextMeshProUGUI _priceTxt;
+
+        /// <summary>
+        /// Turret blueprint
+        /// </summary>
         [SerializeField] private TurretBluePrint _turretBluePrint;
 
         /// <summary>
@@ -17,9 +29,10 @@ namespace Views.UI
         [Inject]
         public OnBuyTurretItemSignal OnBuyTurretItemSignal { get; set; }
 
-        private void Start()
+        protected override void Start()
         {
-            _buyTurretItem.onClick.AddListener(() => { OnBuyTurretItemSignal.Dispatch(_turretBluePrint); });
+            _buyTurretButton.onClick.AddListener(() => { OnBuyTurretItemSignal.Dispatch(_turretBluePrint); });
+            _priceTxt.text = "$" + _turretBluePrint.Cost;
         }
     }
 }
