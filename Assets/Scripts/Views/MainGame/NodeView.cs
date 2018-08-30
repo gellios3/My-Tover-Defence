@@ -1,7 +1,6 @@
 ﻿using System;
 using strange.extensions.mediation.impl;
 using Services;
-using Signals;
 using UnityEngine;
 
 namespace Views.MainGame
@@ -17,6 +16,12 @@ namespace Views.MainGame
         /// Offset position for turret
         /// </summary>
         [SerializeField] private Vector3 _positionOffset;
+
+        /// <summary>
+        /// Build manager service
+        /// </summary>
+        [Inject]
+        public BuildManagerService BuildManagerService { get; set; }
 
         /// <summary>
         ///  Renderer
@@ -68,8 +73,9 @@ namespace Views.MainGame
         /// </summary>
         public void BuildTurret(Transform parent)
         {
-            var prefab = Resources.Load("Prefabs/StandardTurret", typeof(GameObject));
-            Turret = (GameObject) Instantiate(prefab, transform.position + _positionOffset, transform.rotation, parent);
+            // Build a turret
+            var turretToBuild = BuildManagerService.TurretToBuild;
+            Turret = Instantiate(turretToBuild, transform.position + _positionOffset, transform.rotation, parent);
         }
     }
 }

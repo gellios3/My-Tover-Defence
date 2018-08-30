@@ -67,6 +67,7 @@ namespace Contexts
             // Init services
             injectionBinder.Bind<WayPointsService>().ToSingleton();
             injectionBinder.Bind<WaveService>().ToSingleton();
+            injectionBinder.Bind<BuildManagerService>().ToSingleton();
 
             // Init mediators
             mediationBinder.Bind<EnemyView>().To<EnemyMediator>();
