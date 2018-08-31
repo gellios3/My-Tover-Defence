@@ -32,7 +32,7 @@ namespace Views.UI
 
         protected override void Start()
         {
-            _retryBtn.onClick.AddListener(() => { SceneManager.LoadScene("MainScene"); });
+            _retryBtn.onClick.AddListener(() => { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); });
         }
 
         /// <summary>
