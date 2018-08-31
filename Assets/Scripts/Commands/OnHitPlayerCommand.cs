@@ -28,11 +28,11 @@ namespace Commands
             {
                 PlayerStartsService.Lives--;
             }
-            else
-            {
-                Debug.Log("GAME OVER!");
-                GameOverSignal.Dispatch();
-            }
+            // Check if is game over
+            if (PlayerStartsService.Lives > 0)
+                return;
+            PlayerStartsService.HasGameOver = true;
+            GameOverSignal.Dispatch();
         }
     }
 }

@@ -10,6 +10,16 @@ namespace Services
         /// <summary>
         /// Current lives
         /// </summary>
-        public int Lives { get; set; }
+        public int Lives { get; set; }  
+        
+        /// <summary>
+        /// Rounds survived
+        /// </summary>
+        public int Rounds { get; set; }
+        
+        /// <summary>
+        /// Has game over
+        /// </summary>
+        public bool HasGameOver { get; set; }
     }
 }

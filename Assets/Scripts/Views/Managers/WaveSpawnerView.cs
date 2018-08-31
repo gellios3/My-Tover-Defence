@@ -45,8 +45,17 @@ namespace Views.Managers
         [Inject]
         public WaveService WaveService { get; set; }
 
+        /// <summary>
+        /// Player starts service
+        /// </summary>
+        [Inject]
+        public PlayerStartsService PlayerStartsService { get; set; }
+
         private void Update()
         {
+            if (PlayerStartsService.HasGameOver)
+                return;
+
             if (_countDown <= 0f)
             {
                 StartCoroutine(SpawnWave());
@@ -55,7 +64,7 @@ namespace Views.Managers
 
             _countDown -= Time.deltaTime;
             // set countDown to UI text
-            _countDown = Mathf.Clamp(_countDown, 0f, Mathf.Infinity);   
+            _countDown = Mathf.Clamp(_countDown, 0f, Mathf.Infinity);
             _waveCountDownTimerTxt.text = $"{_countDown:0.00}";
         }
 
@@ -65,6 +74,7 @@ namespace Views.Managers
         private IEnumerator SpawnWave()
         {
             WaveService.WaveIndex++;
+            PlayerStartsService.Rounds++;
             for (var i = 0; i < WaveService.WaveIndex; i++)
             {
                 SpawnEnemy();

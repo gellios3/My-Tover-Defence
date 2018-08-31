@@ -1,6 +1,7 @@
 ﻿using Commands;
 using Mediators.MainGame;
 using Mediators.Managers;
+using Mediators.UI;
 using strange.extensions.command.api;
 using strange.extensions.command.impl;
 using strange.extensions.context.api;
@@ -10,6 +11,7 @@ using Signals;
 using UnityEngine;
 using Views.MainGame;
 using Views.Managers;
+using Views.UI;
 
 namespace Contexts
 {
@@ -61,7 +63,7 @@ namespace Contexts
         {
             // init Signals
             injectionBinder.Bind<OnBuildTurretSignal>().ToSingleton();
-            injectionBinder.Bind<OnInitTurretSignal>().ToSingleton();  
+            injectionBinder.Bind<OnInitTurretSignal>().ToSingleton();
             injectionBinder.Bind<GameOverSignal>().ToSingleton();
 
             // Init commands
@@ -82,6 +84,7 @@ namespace Contexts
             mediationBinder.Bind<NodeView>().To<NodeMediator>();
             mediationBinder.Bind<BulletView>().To<BulletMediator>();
             mediationBinder.Bind<TurretView>().To<TurretMediator>();
+            mediationBinder.Bind<GameOverView>().To<GameOverMediator>();
         }
     }
 }
