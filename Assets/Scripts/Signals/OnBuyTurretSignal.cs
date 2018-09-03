@@ -2,7 +2,7 @@ using strange.extensions.signal.impl;
 
 namespace Signals
 {
-    public class OnBuyTurretItemSignal : Signal<TurretBluePrint>
+    public class OnBuyTurretSignal : Signal<TurretBluePrint>
     {
         
     }

@@ -5,5 +5,8 @@ using UnityEngine;
 public class TurretBluePrint
 {
     public GameObject Prefab;
-    public int Cost;
+    public GameObject UpgradePrefab;
+    public int BuyCost;
+    public int UpdateCost;
+    public int SellCost;
 }

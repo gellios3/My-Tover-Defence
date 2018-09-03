@@ -261,7 +261,11 @@ MonoBehaviour:
   _priceTxt: {fileID: 114381319634902176}
   _turretBluePrint:
     Prefab: {fileID: 1798055903021660, guid: 99ca9dfedc05506409c53dcbbcf55e6b, type: 2}
-    Cost: 200
+    UpgradePrefab: {fileID: 1798055903021660, guid: 97809a96a72803640b6e048a72ad6376,
+      type: 2}
+    BuyCost: 0
+    UpdateCost: 0
+    SellCost: 0
 --- !u!114 &114381319634902176
 MonoBehaviour:
   m_ObjectHideFlags: 1

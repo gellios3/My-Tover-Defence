@@ -36,13 +36,18 @@ namespace Views.MainGame
         /// <summary>
         /// Current turret
         /// </summary>
-        public GameObject CurrentTurret { private get; set; }
+        public GameObject CurrentTurret { get; set; }
+        
+        /// <summary>
+        /// Current turret
+        /// </summary>
+        public TurretBluePrint CurrentBluePrint { get; set; }
 
         /// <summary>
         /// On view update
         /// </summary>
         public event Action OnBuildTurret;
-        
+
         /// <summary>
         /// On view update
         /// </summary>
@@ -52,6 +57,11 @@ namespace Views.MainGame
         /// Can build turret on node status
         /// </summary>
         public bool CanBuild => BuildManagerService.TurretToBuild != null;
+
+        /// <summary>
+        /// Has Upgraded
+        /// </summary>
+        public bool HasUpgraded { get; set; }
 
         protected override void Start()
         {

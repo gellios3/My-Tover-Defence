@@ -15,14 +15,14 @@ namespace Mediators.UI
         /// On build turret signal 
         /// </summary>
         [Inject]
-        public OnBuyTurretItemSignal OnBuyTurretItemSignal { get; set; }
+        public OnBuyTurretSignal OnBuyTurretSignal { get; set; }
 
         /// <summary>
         /// On register mediator
         /// </summary>
         public override void OnRegister()
         {
-            OnBuyTurretItemSignal.AddListener(bluePrint => { View.HideCanvas(); });
+            OnBuyTurretSignal.AddListener(bluePrint => { View.HideCanvas(); });
 
             OnSelectNodeSignal.AddListener(view =>
             {

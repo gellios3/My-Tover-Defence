@@ -62,13 +62,15 @@ namespace Contexts
         protected override void mapBindings()
         {
             // init Signals
-            injectionBinder.Bind<OnBuildTurretSignal>().ToSingleton();
+            injectionBinder.Bind<OnBuildTurretSignal>().ToSingleton();    
+            injectionBinder.Bind<OnBuildUpdateTurretSignal>().ToSingleton();
             injectionBinder.Bind<OnInitTurretSignal>().ToSingleton();
             injectionBinder.Bind<GameOverSignal>().ToSingleton();
             injectionBinder.Bind<OnSelectNodeSignal>().ToSingleton();
 
             // Init commands
-            commandBinder.Bind<OnBuyTurretItemSignal>().To<OnBuyTurretItemCommand>();
+            commandBinder.Bind<OnBuyTurretSignal>().To<OnBuyTurretCommand>(); 
+            commandBinder.Bind<OnUpgradeTurretSignal>().To<OnUpgradeTurretCommand>();
             commandBinder.Bind<OnHitPlayerSignal>().To<OnHitPlayerCommand>();
             commandBinder.Bind<OnHitEnemySignal>().To<OnHitEnemyCommand>();
 

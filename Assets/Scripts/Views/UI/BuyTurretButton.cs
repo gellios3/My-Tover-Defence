@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Views.UI
 {
-    public class ShopTurretItem : EventView
+    public class BuyTurretButton : EventView
     {
         /// <summary>
         /// Buy turret item
@@ -27,12 +27,12 @@ namespace Views.UI
         /// On buy turret item signal
         /// </summary>
         [Inject]
-        public OnBuyTurretItemSignal OnBuyTurretItemSignal { get; set; }
+        public OnBuyTurretSignal OnBuyTurretSignal { get; set; }
 
         protected override void Start()
         {
-            _buyTurretButton.onClick.AddListener(() => { OnBuyTurretItemSignal.Dispatch(_turretBluePrint); });
-            _priceTxt.text = "$" + _turretBluePrint.Cost;
+            _buyTurretButton.onClick.AddListener(() => { OnBuyTurretSignal.Dispatch(_turretBluePrint); });
+            _priceTxt.text = "$" + _turretBluePrint.BuyCost;
         }
     }
 }

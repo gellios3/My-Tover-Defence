@@ -31,7 +31,9 @@ namespace Views.Managers
             var turretToBuild = BuildManagerService.TurretToBuild;
 
             // sell turret
-            PlayerStartsService.Money -= turretToBuild.Cost;
+            PlayerStartsService.Money -= turretToBuild.BuyCost;
+
+            node.CurrentBluePrint = turretToBuild;
 
             // Instantiate new turret
             node.CurrentTurret = Instantiate(
@@ -39,6 +41,23 @@ namespace Views.Managers
             );
             BuildManagerService.TurretToBuild = null;
 
+            Debug.Log("Money :" + PlayerStartsService.Money);
+        }
+
+        /// <summary>
+        /// Build upgrade turret
+        /// </summary>
+        /// <param name="node"></param>
+        public void BuildUpgradeTurret(NodeView node)
+        {
+            var turretToBuild = BuildManagerService.TurretToBuild;
+            
+            node.CurrentTurret = Instantiate(
+                turretToBuild.UpgradePrefab, node.GetBuildPosition(), Quaternion.identity, transform
+            );
+            
+            BuildManagerService.TurretToBuild = null;
+            
             Debug.Log("Money :" + PlayerStartsService.Money);
         }
     }

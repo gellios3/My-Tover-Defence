@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Commands
 {
-    public class OnBuyTurretItemCommand : Command
+    public class OnBuyTurretCommand : Command
     {
         /// <summary>
         /// Player starts service
@@ -30,7 +30,7 @@ namespace Commands
         public override void Execute()
         {
             // check enough money
-            if (PlayerStartsService.Money < TurretBluePrint.Cost)
+            if (PlayerStartsService.Money < TurretBluePrint.BuyCost)
             {
                 Debug.Log("Not enough money!!!");
                 return;
