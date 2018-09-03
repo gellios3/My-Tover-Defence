@@ -12,11 +12,22 @@ namespace Mediators.MainGame
         public OnBuildTurretSignal OnBuildTurretSignal { get; set; }
 
         /// <summary>
+        /// On build turret signal 
+        /// </summary>
+        [Inject]
+        public OnSelectNodeSignal OnSelectNodeSignal { get; set; }
+
+        /// <summary>
         /// On register mediator
         /// </summary>
         public override void OnRegister()
         {
             View.OnBuildTurret += () => { OnBuildTurretSignal.Dispatch(View); };
+
+            View.OnSelectTurret += () =>
+            {
+                OnSelectNodeSignal.Dispatch(View);
+            };
         }
     }
 }

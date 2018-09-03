@@ -16,8 +16,6 @@ namespace Views.MainGame
         /// Offset position for turret
         /// </summary>
         [SerializeField] private Vector3 _positionOffset;
-        
-        public Vector3 PositionOffset => _positionOffset;
 
         /// <summary>
         /// Build manager service
@@ -44,6 +42,11 @@ namespace Views.MainGame
         /// On view update
         /// </summary>
         public event Action OnBuildTurret;
+        
+        /// <summary>
+        /// On view update
+        /// </summary>
+        public event Action OnSelectTurret;
 
         /// <summary>
         /// Can build turret on node status
@@ -60,8 +63,7 @@ namespace Views.MainGame
         {
             if (CurrentTurret != null)
             {
-                //@TODO Display on UI  
-                Debug.Log("Can't build there!!");
+                OnSelectTurret?.Invoke();
                 return;
             }
 
@@ -79,6 +81,10 @@ namespace Views.MainGame
         {
             _renderer.material.color = _startColor;
         }
-       
+
+        public Vector3 GetBuildPosition()
+        {
+            return transform.position + _positionOffset;
+        }
     }
 }

@@ -65,6 +65,7 @@ namespace Contexts
             injectionBinder.Bind<OnBuildTurretSignal>().ToSingleton();
             injectionBinder.Bind<OnInitTurretSignal>().ToSingleton();
             injectionBinder.Bind<GameOverSignal>().ToSingleton();
+            injectionBinder.Bind<OnSelectNodeSignal>().ToSingleton();
 
             // Init commands
             commandBinder.Bind<OnBuyTurretItemSignal>().To<OnBuyTurretItemCommand>();
@@ -85,6 +86,7 @@ namespace Contexts
             mediationBinder.Bind<BulletView>().To<BulletMediator>();
             mediationBinder.Bind<TurretView>().To<TurretMediator>();
             mediationBinder.Bind<GameOverView>().To<GameOverMediator>();
+            mediationBinder.Bind<NodeUiView>().To<NodeUiMediator>();
         }
     }
 }

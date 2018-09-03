@@ -35,7 +35,7 @@ namespace Views.Managers
 
             // Instantiate new turret
             node.CurrentTurret = Instantiate(
-                turretToBuild.Prefab, node.transform.position + node.PositionOffset, Quaternion.identity, transform
+                turretToBuild.Prefab, node.GetBuildPosition(), Quaternion.identity, transform
             );
             BuildManagerService.TurretToBuild = null;
 
