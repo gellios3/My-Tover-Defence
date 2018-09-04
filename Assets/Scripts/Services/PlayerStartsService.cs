@@ -2,6 +2,7 @@ namespace Services
 {
     public class PlayerStartsService
     {
+        
         /// <summary>
         /// Current money
         /// </summary>
@@ -16,6 +17,11 @@ namespace Services
         /// Rounds survived
         /// </summary>
         public int Rounds { get; set; }
+        
+        /// <summary>
+        /// Has paused
+        /// </summary>
+        public bool HasPaused { get; set; }
         
         /// <summary>
         /// Has game over

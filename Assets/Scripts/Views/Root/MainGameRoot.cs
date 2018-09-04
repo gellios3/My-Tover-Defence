@@ -14,7 +14,7 @@ namespace Views.Root
         
         private void Update()
         {
-            if (Input.GetKey("escape"))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 Application.Quit();
             }

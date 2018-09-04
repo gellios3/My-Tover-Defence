@@ -97,7 +97,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 20
+  _onDeathEffect: {fileID: 1957288706786674, guid: 83aeea22521e7ae46a36e10703fe77ac,
+    type: 2}
   _currentWayPoint: {fileID: 0}
+  _costMoney: 50
 --- !u!135 &135137672131985750
 SphereCollider:
   m_ObjectHideFlags: 1

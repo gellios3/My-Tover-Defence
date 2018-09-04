@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using strange.extensions.mediation.impl;
+using Services;
+using UnityEngine;
 
 namespace Views
 {
-    public class CameraControllerView : MonoBehaviour
+    public class CameraControllerView : EventView
     {
         [SerializeField] private float _panSpeed = 30f;
         [SerializeField] private float _panBorderThickness = 10f;
@@ -11,17 +13,16 @@ namespace Views
         [SerializeField] private float _maxY = 60f;
 
 
-        private bool _hasMovement = true;
+        /// <summary>
+        /// Player starts service
+        /// </summary>
+        [Inject]
+        public PlayerStartsService PlayerStartsService { get; set; }
+
 
         private void Update()
         {
-            // toggle Movement camera on press Escape 
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                _hasMovement = !_hasMovement;
-            }
-
-            if (!_hasMovement)
+            if (PlayerStartsService.HasPaused)
                 return;
 
             var horizontal = Input.GetAxis("Horizontal");
