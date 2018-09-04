@@ -1,6 +1,6 @@
 using strange.extensions.signal.impl;
 
-namespace Signals
+namespace Signals.Turret
 {
     public class OnBuyTurretSignal : Signal<TurretBluePrint>
     {

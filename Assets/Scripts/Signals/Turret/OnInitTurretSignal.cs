@@ -1,9 +1,9 @@
 using strange.extensions.signal.impl;
 using Views.MainGame;
 
-namespace Signals
+namespace Signals.Turret
 {
-    public class OnBuildTurretSignal : Signal<NodeView>
+    public class OnInitTurretSignal : Signal<TurretView>
     {
         
     }
