@@ -1,3 +1,4 @@
+using UnityEngine;
 using Views.MainGame;
 
 namespace Services
@@ -7,31 +8,16 @@ namespace Services
         /// <summary>
         /// Turret to build
         /// </summary>
-        private TurretBluePrint _turretToBuild;
-
-        public TurretBluePrint TurretToBuild
-        {
-            get
-            {
-                _selectedNode = null;
-                return _turretToBuild;
-            }
-            set { _turretToBuild = value; }
-        }
-
+        public TurretBluePrint TurretToBuild { get; set; }
+        
         /// <summary>
-        /// Selected node
+        /// Build effect
         /// </summary>
-        private NodeView _selectedNode;
-
-        public NodeView SelectedNode
-        {
-            get
-            {
-                _turretToBuild = null;
-                return _selectedNode;
-            }
-            set { _selectedNode = value; }
-        }
+        public GameObject BuildEffect { get; set; } 
+        
+        /// <summary>
+        /// Sell effect
+        /// </summary>
+        public GameObject SellEffect { get; set; } 
     }
 }

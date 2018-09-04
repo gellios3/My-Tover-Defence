@@ -13,6 +13,13 @@ namespace Commands
         [Inject]
         public PlayerStartsService PlayerStartsService { get; set; }
 
+
+        /// <summary>
+        /// Build manager service
+        /// </summary>
+        [Inject]
+        public BuildManagerService BuildManagerService { get; set; }
+
         /// <summary>
         /// Player starts service
         /// </summary>
@@ -26,6 +33,11 @@ namespace Commands
         {
             // sell turret
             PlayerStartsService.Money += NodeView.CurrentBluePrint.SellCost;
+
+            // create sell effect
+            var sellEffect = Object.Instantiate(BuildManagerService.SellEffect, NodeView.GetBuildPosition(),
+                Quaternion.identity);
+            Object.Destroy(sellEffect, 5f);
 
             // Destroy old turret
             Object.Destroy(NodeView.CurrentTurret);
