@@ -71,6 +71,7 @@ namespace Contexts
 
             // Init commands
             commandBinder.Bind<OnBuyTurretSignal>().To<OnBuyTurretCommand>(); 
+            commandBinder.Bind<OnEnemyDeathSignal>().To<OnEnemyDeathCommand>(); 
             commandBinder.Bind<OnUpgradeTurretSignal>().To<OnUpgradeTurretCommand>();     
             commandBinder.Bind<OnSellTurretSignal>().To<OnSellTurretCommand>();
             commandBinder.Bind<OnHitPlayerSignal>().To<OnHitPlayerCommand>();

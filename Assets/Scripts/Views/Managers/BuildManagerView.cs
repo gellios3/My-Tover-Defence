@@ -61,8 +61,6 @@ namespace Views.Managers
                 turretToBuild.Prefab, node.GetBuildPosition(), Quaternion.identity, transform
             );
             BuildManagerService.TurretToBuild = null;
-
-            Debug.Log("Money :" + PlayerStartsService.Money);
         }
 
         /// <summary>
@@ -84,8 +82,6 @@ namespace Views.Managers
             );
 
             BuildManagerService.TurretToBuild = null;
-
-            Debug.Log("Money :" + PlayerStartsService.Money);
         }
     }
 }

@@ -14,6 +14,13 @@ namespace Views.MainGame
         public float Speed => _speed;
 
         /// <summary>
+        /// On death effect
+        /// </summary>
+        [SerializeField] private GameObject _onDeathEffect;
+        
+        public GameObject OnDeathEffect => _onDeathEffect;
+
+        /// <summary>
         /// Current way point
         /// </summary>
         [SerializeField] private Transform _currentWayPoint;
@@ -40,6 +47,7 @@ namespace Views.MainGame
         [SerializeField] private int _costMoney  = 50;
         
         public int CostMoney => _costMoney;
+     
 
         /// <summary>
         /// On init view

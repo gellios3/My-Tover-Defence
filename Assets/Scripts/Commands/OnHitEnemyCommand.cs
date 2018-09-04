@@ -1,5 +1,6 @@
 using strange.extensions.command.impl;
 using Services;
+using Signals;
 using UnityEngine;
 using Views.MainGame;
 
@@ -20,10 +21,10 @@ namespace Commands
         public EnemyView EnemyView { get; set; }
 
         /// <summary>
-        /// Player starts service
+        /// On enemy death signal
         /// </summary>
         [Inject]
-        public PlayerStartsService PlayerStartsService { get; set; }
+        public OnEnemyDeathSignal OnEnemyDeathSignal { get; set; }
 
         /// <summary>
         /// Execute command
@@ -31,12 +32,10 @@ namespace Commands
         public override void Execute()
         {
             EnemyView.Health -= HitDamage;
-            
+
             if (EnemyView.Health >= 0)
                 return;
-            // if heath lest zero die and increase money
-            Object.Destroy(EnemyView.gameObject);
-            PlayerStartsService.Money += EnemyView.CostMoney;
+            OnEnemyDeathSignal.Dispatch(EnemyView);
         }
     }
 }
